@@ -16,7 +16,7 @@ public class GargoyleObserver : MonoBehaviour {
             RaycastHit raycastHit; //if hit something
             if(Physics.Raycast(ray,out raycastHit)){
                 if(raycastHit.collider.transform == player){// line of sight hit the player,not the wall or floor; 
-
+                    gameEnding.CaughtPlayer();
                 }
             }
         }
