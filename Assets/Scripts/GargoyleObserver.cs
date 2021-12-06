@@ -6,7 +6,6 @@ public class GargoyleObserver : MonoBehaviour {
     public Transform player;
     public bool m_IsPlayerInRange;
     public GameEnding gameEnding;
-
     void Start(){
 
     }
