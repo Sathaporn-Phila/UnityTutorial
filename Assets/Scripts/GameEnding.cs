@@ -7,7 +7,7 @@ public class GameEnding : MonoBehaviour {
     public float fadeDuration = 1f;
     public float displayImageDuration = 1f;
     public GameObject player;
-    public CanvasGroup exitBackgroundImageGroup;
+    public CanvasGroup exitBackgroundImageCanvasGroup;
     bool m_IsPlayerAtExit;
     bool m_isPlayerCaught;
     public CanvasGroup caughtBackgroundImageCanvasGroup;
@@ -25,7 +25,7 @@ public class GameEnding : MonoBehaviour {
     }
     void Update() {
         if(m_IsPlayerAtExit){
-            this.EndLevel(exitBackgroundImageGroup,false);
+            this.EndLevel(exitBackgroundImageCanvasGroup,false);
         }
         else if(m_isPlayerCaught){
             this.EndLevel(caughtBackgroundImageCanvasGroup,true);
@@ -33,7 +33,7 @@ public class GameEnding : MonoBehaviour {
     }
     void EndLevel(CanvasGroup imageCanvasGroup,bool doRestart){
         m_timer += Time.deltaTime;
-        exitBackgroundImageGroup.alpha = m_timer/fadeDuration;
+        imageCanvasGroup.alpha = m_timer/fadeDuration;
         if(m_timer>fadeDuration + displayImageDuration){
             if(doRestart){
                 SceneManager.LoadScene(0);
